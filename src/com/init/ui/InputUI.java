@@ -31,6 +31,24 @@ public class InputUI extends javax.swing.JFrame {
         load_table();
     }
 
+    private void cleartable() {
+        Session.setSuster(null);
+        txtIndukUtama.setText("");
+        ImageIcon imageIcon = new ImageIcon("report/images.png");
+        //System.out.println(pegawai.getTeksFilename());
+        Image image = imageIcon.getImage(); // transform it 
+        Image newimg = image.getScaledInstance(123, 123, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way 
+        //displayPhotoTxt.setIcon(imageIcon);
+        txtDisplay.setIcon(new ImageIcon(newimg));
+        txtBiara.setText("");
+        txtPostulat.setText("");
+        txtNovisiat.setText("");
+        txtSementara.setText("");
+        txtKekal.setText("");
+        txtNoInduk.setText("");
+        txtLainnya.setText("");
+    }
+
     private void load_table() {
         SusterTabelModel model = new SusterTabelModel(DaoFactory.getSusterDao().getAllSuster());
         sorter = new TableRowSorter(model);
@@ -42,6 +60,7 @@ public class InputUI extends javax.swing.JFrame {
         tabel_suster.getColumnModel().getColumn(3).setPreferredWidth(100);
         tabel_suster.getColumnModel().getColumn(4).setPreferredWidth(50);
         txtJumlahData.setText(String.valueOf(model.getRowCount()));
+
     }
 
     /**
@@ -57,6 +76,18 @@ public class InputUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNoInduk = new javax.swing.JTextField();
         txtDisplay = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtBiara = new javax.swing.JLabel();
+        txtPostulat = new javax.swing.JLabel();
+        txtNovisiat = new javax.swing.JLabel();
+        txtSementara = new javax.swing.JLabel();
+        txtKekal = new javax.swing.JLabel();
+        txtLain = new javax.swing.JScrollPane();
+        txtLainnya = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtIndukUtama = new javax.swing.JTextField();
@@ -80,17 +111,62 @@ public class InputUI extends javax.swing.JFrame {
 
         txtDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel4.setText("Masuk Biara");
+
+        jLabel5.setText("Postulat");
+
+        jLabel6.setText("Novisiat");
+
+        jLabel7.setText("Kaul Semtr.");
+
+        jLabel8.setText("Kaul Kekal");
+
+        txtBiara.setText("-");
+
+        txtPostulat.setText("-");
+
+        txtNovisiat.setText("-");
+
+        txtSementara.setText("-");
+
+        txtKekal.setText("-");
+
+        txtLain.setBackground(new java.awt.Color(204, 204, 255));
+        txtLain.setOpaque(false);
+
+        txtLainnya.setBackground(new java.awt.Color(204, 204, 204));
+        txtLainnya.setColumns(20);
+        txtLainnya.setLineWrap(true);
+        txtLainnya.setRows(5);
+        txtLain.setViewportView(txtLainnya);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNoInduk, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                    .addComponent(txtLain)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNoInduk, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(txtBiara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPostulat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNovisiat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSementara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtKekal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -99,12 +175,35 @@ public class InputUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNoInduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtBiara))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtPostulat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtNovisiat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtSementara))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtKekal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtLain, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 220, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Daftar Suster Keseluruhan"));
+        jPanel2.setOpaque(false);
 
         jLabel2.setText("Cari");
 
@@ -251,7 +350,7 @@ public class InputUI extends javax.swing.JFrame {
                         .addComponent(txtJumlahData)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 63, Short.MAX_VALUE)
+                        .addGap(0, 49, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -279,6 +378,7 @@ public class InputUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         load_table();
         Session.setSuster(null);
+        cleartable();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -300,7 +400,7 @@ public class InputUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -331,6 +431,12 @@ public class InputUI extends javax.swing.JFrame {
             Image newimg = image.getScaledInstance(123, 123, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way 
             //displayPhotoTxt.setIcon(imageIcon);
             txtDisplay.setIcon(new ImageIcon(newimg));
+            txtBiara.setText(suster.getTglMasukBiara());
+            txtPostulat.setText(suster.getTglMasukPostulat());
+            txtNovisiat.setText(suster.getTglMasukNovisiat());
+            txtSementara.setText(suster.getTglKaulSementara());
+            txtKekal.setText(suster.getTglKaulKekal());
+            txtLainnya.setText(suster.getLainLain());
         }
     }//GEN-LAST:event_tabel_susterMouseClicked
 
@@ -378,14 +484,26 @@ public class InputUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabel_suster;
+    private javax.swing.JLabel txtBiara;
     private javax.swing.JLabel txtDisplay;
     private javax.swing.JTextField txtIndukUtama;
     private javax.swing.JLabel txtJumlahData;
+    private javax.swing.JLabel txtKekal;
+    private javax.swing.JScrollPane txtLain;
+    private javax.swing.JTextArea txtLainnya;
     private javax.swing.JTextField txtNoInduk;
+    private javax.swing.JLabel txtNovisiat;
+    private javax.swing.JLabel txtPostulat;
+    private javax.swing.JLabel txtSementara;
     // End of variables declaration//GEN-END:variables
 }

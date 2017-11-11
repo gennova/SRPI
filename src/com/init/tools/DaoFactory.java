@@ -5,6 +5,10 @@
  */
 package com.init.tools;
 
+import com.init.bidangkerja.BidangKerjaDao;
+import com.init.bidangkerja.BidangKerjaDaoImplemen;
+import com.init.cabang.CabangDao;
+import com.init.cabang.CabangDaoImplemen;
 import com.init.keluarga.KeluargaDao;
 import com.init.keluarga.KeluargaDaoImplemen;
 import com.init.nonformal.PendidikanNonFormalDao;
@@ -13,6 +17,11 @@ import com.init.pendidikanterakhir.PendidikanTerakhirDao;
 import com.init.pendidikanterakhir.PendidikanTerakhirDaoImplemen;
 import com.init.pformal.PendidikanFormalDao;
 import com.init.pformal.PendidikanFormalDaoImplemen;
+import com.init.riwayatkerja.RiwayatKerja;
+import com.init.riwayatkerja.RiwayatKerjaDao;
+import com.init.riwayatkerja.RiwayatKerjaDaoImplemen;
+import com.init.unit.UnitDao;
+import com.init.unit.UnitDaoImplemen;
 import com.ypii.suster.SusterDao;
 import com.ypii.suster.SusterDaoImplemen;
 import java.io.FileInputStream;
@@ -44,6 +53,38 @@ public class DaoFactory {
     private static PendidikanFormalDao formalDao;
     private static PendidikanNonFormalDao nonFormalDao;
     private static KeluargaDao keluargaDao;
+    private static BidangKerjaDao bidangKerjaDao;
+    private static UnitDao unitDao;
+    private static CabangDao cabangDao;
+    private static RiwayatKerjaDao kerjaDao;
+
+    public static RiwayatKerjaDao getKerjaDao() {
+        if (kerjaDao == null) {
+            kerjaDao = new RiwayatKerjaDaoImplemen(getConnectionFix());
+        }
+        return kerjaDao;
+    }
+
+    public static CabangDao getCabangDao() {
+        if (cabangDao == null) {
+            cabangDao = new CabangDaoImplemen(getConnectionFix());
+        }
+        return cabangDao;
+    }
+
+    public static UnitDao getUnitDao() {
+        if (unitDao == null) {
+            unitDao = new UnitDaoImplemen(getConnectionFix());
+        }
+        return unitDao;
+    }
+
+    public static BidangKerjaDao getBidangKerjaDao() {
+        if (bidangKerjaDao == null) {
+            bidangKerjaDao = new BidangKerjaDaoImplemen(getConnectionFix());
+        }
+        return bidangKerjaDao;
+    }
 
     public static KeluargaDao getKeluargaDao() {
         if (keluargaDao == null) {

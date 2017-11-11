@@ -254,12 +254,14 @@ public class InputData extends javax.swing.JFrame {
         jLabel26.setText("Foto");
 
         txtRiwayatSebelum.setColumns(20);
+        txtRiwayatSebelum.setLineWrap(true);
         txtRiwayatSebelum.setRows(5);
         jScrollPane1.setViewportView(txtRiwayatSebelum);
 
         jLabel27.setText("Lain-lain");
 
         txtLain.setColumns(20);
+        txtLain.setLineWrap(true);
         txtLain.setRows(5);
         jScrollPane2.setViewportView(txtLain);
 
@@ -508,6 +510,11 @@ public class InputData extends javax.swing.JFrame {
         });
 
         jButton5.setText("Riwayat Kerja");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Data Keluarga");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -745,6 +752,12 @@ public class InputData extends javax.swing.JFrame {
         AggotaKeluargaUI akui = new AggotaKeluargaUI();
         akui.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        RiwayatKerjaUI kerjaUI = new RiwayatKerjaUI();
+        kerjaUI.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

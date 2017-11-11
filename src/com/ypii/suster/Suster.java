@@ -39,6 +39,8 @@ public class Suster {
     private String riwayatSebelumMembiara; //26
     private String lainLain; //27
     private String foto; //28
+    private int tahunlamakarya;
+    private int bulanlamakarya;
 
     public int getID() {
         return ID;
@@ -262,6 +264,22 @@ public class Suster {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public int getTahunlamakarya() {
+        return tahunlamakarya;
+    }
+
+    public void setTahunlamakarya(int tahunlamakarya) {
+        this.tahunlamakarya = tahunlamakarya;
+    }
+
+    public int getBulanlamakarya() {
+        return bulanlamakarya;
+    }
+
+    public void setBulanlamakarya(int bulanlamakarya) {
+        this.bulanlamakarya = bulanlamakarya;
     }
 
 }

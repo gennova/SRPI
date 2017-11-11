@@ -20,6 +20,8 @@ public interface SusterDao {
     public void DeleteSuster(Suster suster);
 
     public List<Suster> getAllSuster();
+    
+    public List<Suster> getAllSusterByMasaKarya(int lama);
 
     public Suster getSusterByID(int ID);
 
