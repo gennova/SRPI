@@ -6,6 +6,7 @@
 package com.init.ui;
 
 import com.init.tools.DaoFactory;
+import com.init.tools.PrintReport;
 import com.ypii.suster.SusterTabelModelKarya;
 
 /**
@@ -93,7 +94,7 @@ public class LaporanSusterUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Nama Suster", "Cabang", "Tgl Lahir"
             }
         ));
         jScrollPane1.setViewportView(tabelKarya);
@@ -101,6 +102,11 @@ public class LaporanSusterUI extends javax.swing.JFrame {
         jButton1.setText("Close");
 
         jButton2.setText("Print");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,6 +173,11 @@ public class LaporanSusterUI extends javax.swing.JFrame {
         int kode = Integer.parseInt(txtLama.getText());
         loadtable(kode);
     }//GEN-LAST:event_buttonRoundRect1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        PrintReport printReport = new PrintReport("./report/daftarsusterbykarya.jasper", "karya", txtLama.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

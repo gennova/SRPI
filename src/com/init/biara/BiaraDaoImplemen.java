@@ -22,6 +22,8 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     private final Connection connection;
     private final String getAllBiara = "select * from biara";
+    private final String sqlGetBiaraByID = "select * from biara where id=?";
+    private final String sqlGetBiaraByNama = "select * from biara where namabiara=?";
 
     public BiaraDaoImplemen(Connection connection) {
         this.connection = connection;
@@ -51,7 +53,23 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     @Override
     public Biara getBiaraByID(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement ps;
+        ResultSet rs;
+        Biara biara = null;
+        try {
+            ps = connection.prepareCall(sqlGetBiaraByID);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                biara = new Biara();
+                biara.setID(rs.getInt("id"));
+                biara.setNamaBiara(rs.getString("namabiara"));
+                biara.setAlamatbiara(rs.getString("namabiara"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return biara;
     }
 
     @Override
@@ -61,7 +79,23 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     @Override
     public Biara getBiaraByNama(String nama) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement ps;
+        ResultSet rs;
+        Biara biara = null;
+        try {
+            ps = connection.prepareCall(sqlGetBiaraByNama);
+            ps.setString(1, nama);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                biara = new Biara();
+                biara.setID(rs.getInt("id"));
+                biara.setNamaBiara(rs.getString("namabiara"));
+                biara.setAlamatbiara(rs.getString("namabiara"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return biara;
     }
 
     @Override

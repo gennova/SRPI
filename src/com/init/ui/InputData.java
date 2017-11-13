@@ -109,6 +109,12 @@ public class InputData extends javax.swing.JFrame {
             txtFoto.setText(suster.getFoto());
             txtRiwayatSebelum.setText(suster.getRiwayatSebelumMembiara());
             txtLain.setText(suster.getLainLain());
+            txtkmb.setText(suster.getKotamasukbiara());
+            txtkmp.setText(suster.getKotapostulat());
+            txtkmn.setText(suster.getKotanovisiat());
+            txtkks.setText(suster.getKotasementara());
+            txtkkk.setText(suster.getKotakaulkekal());
+            combobiara.setSelectedItem(suster.getBiara().getNamaBiara().toString());
         }
 
     }
@@ -122,11 +128,11 @@ public class InputData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtLain = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtLain = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         txtInduk = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -197,11 +203,6 @@ public class InputData extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
-        txtLain.setColumns(20);
-        txtLain.setLineWrap(true);
-        txtLain.setRows(5);
-        jScrollPane2.setViewportView(txtLain);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 0));
@@ -223,6 +224,11 @@ public class InputData extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Isian"));
+
+        txtLain.setColumns(20);
+        txtLain.setLineWrap(true);
+        txtLain.setRows(5);
+        jScrollPane2.setViewportView(txtLain);
 
         jLabel2.setText("No. Induk");
 
@@ -349,7 +355,8 @@ public class InputData extends javax.swing.JFrame {
                             .addComponent(txtNoSuratKrisma)
                             .addComponent(txtTempatKrisma)
                             .addComponent(txtNoSuratBaptis)
-                            .addComponent(txtTempatBaptis))
+                            .addComponent(txtTempatBaptis)
+                            .addComponent(jScrollPane2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -500,7 +507,8 @@ public class InputData extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -612,7 +620,7 @@ public class InputData extends javax.swing.JFrame {
         // TODO add your handling code here:
         Suster cek = DaoFactory.getSusterDao().getSusterByInduk(txtInduk.getText());
         if (cek == null) {
-            if (txtInduk.getText()!="" && txtNamaSuster.getText()!="") {
+            if (!"".equals(txtInduk.getText()) && !"".equals(txtNamaSuster.getText())) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String noInduk = txtInduk.getText(); //2
             String namaSuster = txtNamaSuster.getText(); //3
@@ -623,7 +631,7 @@ public class InputData extends javax.swing.JFrame {
             if (tglLahirDate.getDate() != null) {
                 tglLahir = sdf.format(tglLahirDate.getDate()); //7   
             } else {
-                tglLahir = "0000-00-00";
+                tglLahir = "9999-99-99";
             }
             String namaBaptis = txtNamaBaptis.getText(); //8
             String tempatBpatis = txtTempatBaptis.getText(); //9
@@ -631,7 +639,7 @@ public class InputData extends javax.swing.JFrame {
             if (tglBaptisDate.getDate() != null) {
                 tglBaptis = sdf.format(tglBaptisDate.getDate()); //10    
             } else {
-                tglBaptis = "0000-00-00";
+                tglBaptis = "9999-99-99";
             }
             String noSuratBaptis = txtNoSuratBaptis.getText(); //11
             String tempatKrisma = txtTempatKrisma.getText();//12
@@ -649,19 +657,19 @@ public class InputData extends javax.swing.JFrame {
             if (tglKeluarDate.getDate() != null) {
                 tglKeluar = sdf.format(tglKeluarDate.getDate()); //23
             } else {
-                tglKeluar = "0000-00-00";
+                tglKeluar = "1111-11-11";
             }
             String tglKembali;
             if (tglMasukLagiDate.getDate() != null) {
                 tglKembali = sdf.format(tglMasukLagiDate.getDate()); //24
             } else {
-                tglKembali = "0000-00-00";
+                tglKembali = "1111-11-11";
             }
             String tglWafat;
             if (tglWafatDate.getDate() != null) {
                 tglWafat = sdf.format(tglWafatDate.getDate()); //25
             } else {
-                tglWafat = "0000-00-00";
+                tglWafat = "1111-11-11";
             }
             String riwayat = txtRiwayatSebelum.getText(); //26
             String lainnya = txtLain.getText(); //27
@@ -694,11 +702,16 @@ public class InputData extends javax.swing.JFrame {
             suster.setRiwayatSebelumMembiara(riwayat);
             suster.setLainLain(lainnya);
             suster.setFoto(foto);
+            suster.setBiara(DaoFactory.getBiaraDao().getBiaraByNama(combobiara.getSelectedItem().toString()));
+            suster.setKotamasukbiara(txtkmb.getText());
+            suster.setKotapostulat(txtkmp.getText());
+            suster.setKotanovisiat(txtkmn.getText());
+            suster.setKotasementara(txtkks.getText());
+            suster.setKotakaulkekal(txtkks.getText());
             DaoFactory.getSusterDao().InsertSuster(suster);
             }else{
-                JOptionPane.showMessageDialog(null, "Cek kelengkapan data");
-            }
-            
+                JOptionPane.showMessageDialog(null, "GAGAL MENYIMPAN \nCek kelengkapan data");                
+            }            
         } else {
             //JOptionPane.showMessageDialog(null, "mari kita update");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -723,9 +736,24 @@ public class InputData extends javax.swing.JFrame {
             String tglMasukNovisiat = sdf.format(tglMasukNovisiatDate.getDate()); //20
             String tglKaulSementara = sdf.format(tglKaulSementaraDate.getDate()); //21
             String tglkaulKekal = sdf.format(tglKaulKekalDate.getDate()); //22
-            String tglKeluar = sdf.format(tglKeluarDate.getDate()); //23
-            String tglKembali = sdf.format(tglMasukLagiDate.getDate()); //24
-            String tglWafat = sdf.format(tglWafatDate.getDate()); //25
+            String tglKeluar;
+            if (tglKeluarDate.getDate() != null) {
+                tglKeluar = sdf.format(tglKeluarDate.getDate()); //23
+            } else {
+                tglKeluar = "1111-11-11";
+            }
+            String tglKembali;
+            if (tglMasukLagiDate.getDate() != null) {
+                tglKembali = sdf.format(tglMasukLagiDate.getDate()); //24
+            } else {
+                tglKembali = "1111-11-11";
+            }
+            String tglWafat;
+            if (tglWafatDate.getDate() != null) {
+                tglWafat = sdf.format(tglWafatDate.getDate()); //25
+            } else {
+                tglWafat = "1111-11-11";
+            }
             String riwayat = txtRiwayatSebelum.getText(); //26
             String lainnya = txtLain.getText(); //27
             String foto = txtFoto.getText(); //28
@@ -758,6 +786,12 @@ public class InputData extends javax.swing.JFrame {
             suster.setLainLain(lainnya);
             suster.setFoto(foto);
             suster.setID(cek.getID());
+            suster.setBiara(DaoFactory.getBiaraDao().getBiaraByNama(combobiara.getSelectedItem().toString()));
+            suster.setKotamasukbiara(txtkmb.getText());
+            suster.setKotapostulat(txtkmp.getText());
+            suster.setKotanovisiat(txtkmn.getText());
+            suster.setKotasementara(txtkks.getText());
+            suster.setKotakaulkekal(txtkks.getText());
             DaoFactory.getSusterDao().UpdateSuster(suster);
         }
         this.dispose();
