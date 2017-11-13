@@ -5,6 +5,8 @@
  */
 package com.ypii.suster;
 
+import com.init.biara.Biara;
+
 /**
  *
  * @author laravel
@@ -39,6 +41,13 @@ public class Suster {
     private String riwayatSebelumMembiara; //26
     private String lainLain; //27
     private String foto; //28
+    private Biara biara; //29
+    private String kotamasukbiara;//30
+    private String kotanovisiat;//31
+    private String kotapostulat;//32
+    private String kotasementara;//33
+    private String kotakaulkekal;//34
+
     private int tahunlamakarya;
     private int bulanlamakarya;
 
@@ -280,6 +289,54 @@ public class Suster {
 
     public void setBulanlamakarya(int bulanlamakarya) {
         this.bulanlamakarya = bulanlamakarya;
+    }
+
+    public Biara getBiara() {
+        return biara;
+    }
+
+    public void setBiara(Biara biara) {
+        this.biara = biara;
+    }
+
+    public String getKotamasukbiara() {
+        return kotamasukbiara;
+    }
+
+    public void setKotamasukbiara(String kotamasukbiara) {
+        this.kotamasukbiara = kotamasukbiara;
+    }
+
+    public String getKotanovisiat() {
+        return kotanovisiat;
+    }
+
+    public void setKotanovisiat(String kotanovisiat) {
+        this.kotanovisiat = kotanovisiat;
+    }
+
+    public String getKotapostulat() {
+        return kotapostulat;
+    }
+
+    public void setKotapostulat(String kotapostulat) {
+        this.kotapostulat = kotapostulat;
+    }
+
+    public String getKotasementara() {
+        return kotasementara;
+    }
+
+    public void setKotasementara(String kotasementara) {
+        this.kotasementara = kotasementara;
+    }
+
+    public String getKotakaulkekal() {
+        return kotakaulkekal;
+    }
+
+    public void setKotakaulkekal(String kotakaulkekal) {
+        this.kotakaulkekal = kotakaulkekal;
     }
 
 }

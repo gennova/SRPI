@@ -5,6 +5,7 @@
  */
 package com.init.ui;
 
+import com.init.biara.Biara;
 import com.init.tools.DaoFactory;
 import com.init.tools.Session;
 import com.ypii.suster.Suster;
@@ -26,6 +27,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import com.init.ui.AggotaKeluargaUI;
+import java.util.List;
 
 /**
  *
@@ -43,19 +45,24 @@ public class InputData extends javax.swing.JFrame {
     }
 
     private void initApp() {
+        combobiara.removeAllItems();
+        List<Biara> b = DaoFactory.getBiaraDao().getAllBiara();
+        for (Biara biara : b) {
+            combobiara.addItem(biara.getNamaBiara());
+        }
         if (Session.getSuster() == null) {
             Date now = (Date) GregorianCalendar.getInstance().getTime();
             tglBaptisDate.setDate(now);
             tglKaulKekalDate.setDate(now);
             tglKaulSementaraDate.setDate(now);
-            tglKeluarDate.setDate(now);
+            tglKeluarDate.setDate(null);
             tglKrismaDate.setDate(now);
             tglLahirDate.setDate(now);
             tglMasukBiaraDate.setDate(now);
-            tglMasukLagiDate.setDate(now);
+            tglMasukLagiDate.setDate(null);
             tglMasukNovisiatDate.setDate(now);
             tglMasukPostulatdate.setDate(now);
-            tglWafatDate.setDate(now);
+            tglWafatDate.setDate(null);
         } else {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Suster suster = Session.getSuster();
@@ -115,6 +122,8 @@ public class InputData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtLain = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -168,13 +177,18 @@ public class InputData extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtRiwayatSebelum = new javax.swing.JTextArea();
         jLabel27 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtLain = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         tglBaptisDate = new com.toedter.calendar.JDateChooser();
         jLabel28 = new javax.swing.JLabel();
         txtFoto = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        combobiara = new javax.swing.JComboBox<>();
+        txtkmb = new javax.swing.JTextField();
+        txtkmp = new javax.swing.JTextField();
+        txtkmn = new javax.swing.JTextField();
+        txtkks = new javax.swing.JTextField();
+        txtkkk = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -182,6 +196,11 @@ public class InputData extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+
+        txtLain.setColumns(20);
+        txtLain.setLineWrap(true);
+        txtLain.setRows(5);
+        jScrollPane2.setViewportView(txtLain);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -260,11 +279,6 @@ public class InputData extends javax.swing.JFrame {
 
         jLabel27.setText("Lain-lain");
 
-        txtLain.setColumns(20);
-        txtLain.setLineWrap(true);
-        txtLain.setRows(5);
-        jScrollPane2.setViewportView(txtLain);
-
         jLabel12.setText("Tanggal Baptis");
 
         jLabel28.setText("Riwayat Hidup Sebelum di Biara");
@@ -277,6 +291,10 @@ public class InputData extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+
+        jLabel29.setText("Biara");
+
+        combobiara.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -303,7 +321,7 @@ public class InputData extends javax.swing.JFrame {
                                     .addGap(29, 29, 29))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                                         .addComponent(jLabel13)
                                         .addComponent(jLabel11)
                                         .addComponent(jLabel14)
@@ -313,39 +331,34 @@ public class InputData extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(46, 46, 46)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tglBaptisDate, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglKrismaDate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNamaBaptis, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                            .addComponent(tglLahirDate, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tglBaptisDate, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tglKrismaDate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNamaSuster)
-                                            .addComponent(txtNamaAsli)
-                                            .addComponent(txtNamaBaru)
-                                            .addComponent(txtTempatLahir, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                                            .addComponent(txtNamaBaptis, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                                            .addComponent(txtTempatBaptis)
-                                            .addComponent(txtNoSuratBaptis)
-                                            .addComponent(txtTempatKrisma)
-                                            .addComponent(txtNoSuratKrisma)
-                                            .addComponent(txtInduk, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tglLahirDate, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(33, 33, 33)))))
+                                .addComponent(txtInduk, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(combobiara, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtNamaSuster)
+                            .addComponent(txtNamaAsli)
+                            .addComponent(txtNamaBaru)
+                            .addComponent(txtTempatLahir)
+                            .addComponent(txtNoSuratKrisma)
+                            .addComponent(txtTempatKrisma)
+                            .addComponent(txtNoSuratBaptis)
+                            .addComponent(txtTempatBaptis))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel16)
                                     .addComponent(jLabel17)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel19)
                                     .addComponent(jLabel20)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel22)
@@ -353,42 +366,48 @@ public class InputData extends javax.swing.JFrame {
                                     .addComponent(jLabel24)
                                     .addComponent(jLabel25)
                                     .addComponent(jLabel26))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(44, 44, 44))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtSuratKelahiran, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
+                                        .addComponent(txtkmb, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addGap(37, 37, 37)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tglMasukBiaraDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglMasukPostulatdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglMasukNovisiatDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglKaulSementaraDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglKaulKekalDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglKeluarDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglMasukLagiDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tglWafatDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtSuratWNI, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtGantiNama, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                                        .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                                .addGap(0, 0, Short.MAX_VALUE))))))
-                            .addComponent(jScrollPane1))
-                        .addGap(24, 24, 24))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addComponent(txtkmn)
+                                            .addComponent(txtkmp)
+                                            .addComponent(txtkks)
+                                            .addComponent(txtkkk))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtFoto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tglWafatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglMasukLagiDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglKeluarDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglKaulKekalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglKaulSementaraDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglMasukNovisiatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tglMasukPostulatdate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtSuratKelahiran, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSuratWNI, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGantiNama, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tglMasukBiaraDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)))))
+                    .addComponent(jLabel28)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtNamaAsli, txtNamaBaptis, txtNamaBaru, txtNamaSuster, txtNoSuratBaptis, txtNoSuratKrisma, txtTempatBaptis, txtTempatKrisma, txtTempatLahir});
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtGantiNama, txtSuratKelahiran, txtSuratWNI});
-
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tglBaptisDate, tglKrismaDate, tglLahirDate});
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtkkk, txtkks, txtkmb, txtkmn, txtkmp});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,7 +417,9 @@ public class InputData extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtInduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(txtSuratKelahiran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSuratKelahiran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(combobiara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel3)
@@ -416,31 +437,36 @@ public class InputData extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtNamaBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(tglMasukBiaraDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglMasukBiaraDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel6)
                     .addComponent(txtTempatLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
-                    .addComponent(tglMasukPostulatdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglMasukPostulatdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel7)
                     .addComponent(tglLahirDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20)
-                    .addComponent(tglMasukNovisiatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglMasukNovisiatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkmn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel9)
                     .addComponent(txtNamaBaptis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(tglKaulSementaraDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglKaulSementaraDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel10)
                     .addComponent(txtTempatBaptis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(tglKaulKekalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglKaulKekalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkkk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel11)
@@ -472,10 +498,9 @@ public class InputData extends javax.swing.JFrame {
                     .addComponent(txtNoSuratKrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -528,7 +553,7 @@ public class InputData extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(153, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
@@ -587,16 +612,27 @@ public class InputData extends javax.swing.JFrame {
         // TODO add your handling code here:
         Suster cek = DaoFactory.getSusterDao().getSusterByInduk(txtInduk.getText());
         if (cek == null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            if (txtInduk.getText()!="" && txtNamaSuster.getText()!="") {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String noInduk = txtInduk.getText(); //2
             String namaSuster = txtNamaSuster.getText(); //3
             String namaAsli = txtNamaAsli.getText(); //4
             String namaBaru = txtNamaBaru.getText(); //5
             String tempatLahir = txtTempatLahir.getText(); //6
-            String tglLahir = sdf.format(tglLahirDate.getDate()); //7
+            String tglLahir;
+            if (tglLahirDate.getDate() != null) {
+                tglLahir = sdf.format(tglLahirDate.getDate()); //7   
+            } else {
+                tglLahir = "0000-00-00";
+            }
             String namaBaptis = txtNamaBaptis.getText(); //8
             String tempatBpatis = txtTempatBaptis.getText(); //9
-            String tglBaptis = sdf.format(tglBaptisDate.getDate()); //10
+            String tglBaptis;
+            if (tglBaptisDate.getDate() != null) {
+                tglBaptis = sdf.format(tglBaptisDate.getDate()); //10    
+            } else {
+                tglBaptis = "0000-00-00";
+            }
             String noSuratBaptis = txtNoSuratBaptis.getText(); //11
             String tempatKrisma = txtTempatKrisma.getText();//12
             String tglKrisma = sdf.format(tglKrismaDate.getDate()); //13
@@ -609,9 +645,24 @@ public class InputData extends javax.swing.JFrame {
             String tglMasukNovisiat = sdf.format(tglMasukNovisiatDate.getDate()); //20
             String tglKaulSementara = sdf.format(tglKaulSementaraDate.getDate()); //21
             String tglkaulKekal = sdf.format(tglKaulKekalDate.getDate()); //22
-            String tglKeluar = sdf.format(tglKeluarDate.getDate()); //23
-            String tglKembali = sdf.format(tglMasukLagiDate.getDate()); //24
-            String tglWafat = sdf.format(tglWafatDate.getDate()); //25
+            String tglKeluar;
+            if (tglKeluarDate.getDate() != null) {
+                tglKeluar = sdf.format(tglKeluarDate.getDate()); //23
+            } else {
+                tglKeluar = "0000-00-00";
+            }
+            String tglKembali;
+            if (tglMasukLagiDate.getDate() != null) {
+                tglKembali = sdf.format(tglMasukLagiDate.getDate()); //24
+            } else {
+                tglKembali = "0000-00-00";
+            }
+            String tglWafat;
+            if (tglWafatDate.getDate() != null) {
+                tglWafat = sdf.format(tglWafatDate.getDate()); //25
+            } else {
+                tglWafat = "0000-00-00";
+            }
             String riwayat = txtRiwayatSebelum.getText(); //26
             String lainnya = txtLain.getText(); //27
             String foto = txtFoto.getText(); //28
@@ -644,6 +695,10 @@ public class InputData extends javax.swing.JFrame {
             suster.setLainLain(lainnya);
             suster.setFoto(foto);
             DaoFactory.getSusterDao().InsertSuster(suster);
+            }else{
+                JOptionPane.showMessageDialog(null, "Cek kelengkapan data");
+            }
+            
         } else {
             //JOptionPane.showMessageDialog(null, "mari kita update");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -738,7 +793,7 @@ public class InputData extends javax.swing.JFrame {
         // TODO add your handling code here:
         PendidikanFormalUI formalUI = new PendidikanFormalUI();
         formalUI.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -795,6 +850,7 @@ public class InputData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combobiara;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -823,6 +879,7 @@ public class InputData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -862,5 +919,10 @@ public class InputData extends javax.swing.JFrame {
     private javax.swing.JTextField txtTempatBaptis;
     private javax.swing.JTextField txtTempatKrisma;
     private javax.swing.JTextField txtTempatLahir;
+    private javax.swing.JTextField txtkkk;
+    private javax.swing.JTextField txtkks;
+    private javax.swing.JTextField txtkmb;
+    private javax.swing.JTextField txtkmn;
+    private javax.swing.JTextField txtkmp;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtLain">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -112,7 +130,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel10" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jLabel10" alignment="1" pref="156" max="32767" attributes="0"/>
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -127,47 +145,38 @@
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="tglBaptisDate" linkSize="3" min="-2" pref="216" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tglBaptisDate" linkSize="3" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="tglKrismaDate" linkSize="3" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                              <Component id="txtNamaBaptis" alignment="0" pref="447" max="32767" attributes="0"/>
+                              <Component id="tglLahirDate" linkSize="3" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtInduk" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="combobiara" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tglKrismaDate" linkSize="3" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="txtNamaSuster" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNamaAsli" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNamaBaru" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtTempatLahir" linkSize="1" alignment="0" pref="323" max="32767" attributes="0"/>
-                                              <Component id="txtNamaBaptis" linkSize="1" alignment="0" pref="325" max="32767" attributes="0"/>
-                                              <Component id="txtTempatBaptis" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNoSuratBaptis" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtTempatKrisma" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNoSuratKrisma" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtInduk" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
-                                              <Component id="tglLahirDate" linkSize="3" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtNamaSuster" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNamaAsli" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNamaBaru" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTempatLahir" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNoSuratKrisma" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTempatKrisma" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNoSuratBaptis" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTempatBaptis" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -176,47 +185,56 @@
                                       <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtSuratKelahiran" linkSize="2" min="-2" pref="326" max="-2" attributes="0"/>
+                                          <Component id="txtkmb" linkSize="5" min="-2" pref="136" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tglMasukBiaraDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglMasukPostulatdate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglMasukNovisiatDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglKaulSementaraDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglKaulKekalDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglKeluarDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglMasukLagiDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tglWafatDate" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="txtSuratWNI" linkSize="2" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
-                                                      <Component id="txtGantiNama" linkSize="2" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="txtFoto" min="-2" pref="162" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="jButton7" max="32767" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="txtkmn" linkSize="5" max="32767" attributes="0"/>
+                                              <Component id="txtkmp" linkSize="5" max="32767" attributes="0"/>
+                                              <Component id="txtkks" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtkkk" linkSize="5" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="txtFoto" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton7" min="-2" pref="91" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="tglWafatDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglMasukLagiDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglKeluarDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglKaulKekalDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglKaulSementaraDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglMasukNovisiatDate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="tglMasukPostulatdate" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="txtSuratKelahiran" alignment="1" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="txtSuratWNI" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtGantiNama" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tglMasukBiaraDate" alignment="0" pref="218" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="505" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -229,6 +247,8 @@
                       <Component id="txtInduk" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSuratKelahiran" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel29" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="combobiara" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -250,6 +270,7 @@
                       <Component id="txtNamaBaru" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel18" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="tglMasukBiaraDate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtkmb" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -257,6 +278,7 @@
                       <Component id="txtTempatLahir" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="tglMasukPostulatdate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtkmp" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -264,6 +286,7 @@
                       <Component id="tglLahirDate" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="tglMasukNovisiatDate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtkmn" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -271,6 +294,7 @@
                       <Component id="txtNamaBaptis" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="tglKaulSementaraDate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtkks" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -278,6 +302,7 @@
                       <Component id="txtTempatBaptis" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel22" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="tglKaulKekalDate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtkkk" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
@@ -315,10 +340,9 @@
                       <Component id="jLabel28" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -513,22 +537,6 @@
             <Property name="text" type="java.lang.String" value="Lain-lain"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txtLain">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="lineWrap" type="boolean" value="true"/>
-                <Property name="rows" type="int" value="5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tanggal Baptis"/>
@@ -554,6 +562,36 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel29">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Biara"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combobiara">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtkmb">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtkmp">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtkmn">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtkks">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtkkk">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel3">
@@ -562,7 +600,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="153" max="32767" attributes="0"/>
                   <Component id="jButton6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" max="-2" attributes="0"/>

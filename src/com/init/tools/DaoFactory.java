@@ -5,6 +5,8 @@
  */
 package com.init.tools;
 
+import com.init.biara.BiaraDao;
+import com.init.biara.BiaraDaoImplemen;
 import com.init.bidangkerja.BidangKerjaDao;
 import com.init.bidangkerja.BidangKerjaDaoImplemen;
 import com.init.cabang.CabangDao;
@@ -57,6 +59,14 @@ public class DaoFactory {
     private static UnitDao unitDao;
     private static CabangDao cabangDao;
     private static RiwayatKerjaDao kerjaDao;
+    private static BiaraDao biaraDao;
+
+    public static BiaraDao getBiaraDao() {
+        if (biaraDao == null) {
+            biaraDao = new BiaraDaoImplemen(getConnectionFix());
+        }
+        return biaraDao;
+    }
 
     public static RiwayatKerjaDao getKerjaDao() {
         if (kerjaDao == null) {
