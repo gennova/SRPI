@@ -15,6 +15,7 @@ public class Biara {
     private String kodebiara;
     private String namabiara;
     private String alamatbiara;
+    private String kotacabang;
 
     public Biara() {
     }
@@ -49,6 +50,14 @@ public class Biara {
 
     public void setAlamatbiara(String alamatbiara) {
         this.alamatbiara = alamatbiara;
+    }
+
+    public String getKotacabang() {
+        return kotacabang;
+    }
+
+    public void setKotacabang(String kotacabang) {
+        this.kotacabang = kotacabang;
     }
 
 }

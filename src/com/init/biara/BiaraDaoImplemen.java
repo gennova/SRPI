@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,7 @@ public class BiaraDaoImplemen implements BiaraDao {
     private final String getAllBiara = "select * from biara";
     private final String sqlGetBiaraByID = "select * from biara where id=?";
     private final String sqlGetBiaraByNama = "select * from biara where namabiara=?";
+    private final String sqlInsertBiara = "insert into biara(namabiara,alamatbiara,kotacabang) values (?,?,?)";
 
     public BiaraDaoImplemen(Connection connection) {
         this.connection = connection;
@@ -43,6 +45,7 @@ public class BiaraDaoImplemen implements BiaraDao {
                 biara.setID(rs.getInt("id"));
                 biara.setNamaBiara(rs.getString("namabiara"));
                 biara.setAlamatbiara(rs.getString("alamatbiara"));
+                biara.setKotacabang(rs.getString("kotacabang"));
                 biaras.add(biara);
             }
         } catch (SQLException ex) {
@@ -65,6 +68,7 @@ public class BiaraDaoImplemen implements BiaraDao {
                 biara.setID(rs.getInt("id"));
                 biara.setNamaBiara(rs.getString("namabiara"));
                 biara.setAlamatbiara(rs.getString("namabiara"));
+                biara.setKotacabang(rs.getString("kotacabang"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
@@ -91,6 +95,7 @@ public class BiaraDaoImplemen implements BiaraDao {
                 biara.setID(rs.getInt("id"));
                 biara.setNamaBiara(rs.getString("namabiara"));
                 biara.setAlamatbiara(rs.getString("namabiara"));
+                biara.setKotacabang(rs.getString("kotacabang"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,7 +105,19 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     @Override
     public void InsertBiara(Biara biara) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(sqlInsertBiara);
+            ps.setString(1, biara.getNamaBiara());
+            ps.setString(2, biara.getAlamatbiara());
+            ps.setString(3, biara.getKotacabang());
+            int status = ps.executeUpdate();
+            if (status==0) {
+                JOptionPane.showMessageDialog(null, "Data biara berhasil ditambahkan");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -110,7 +127,14 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     @Override
     public void DeleteBiaraByID(Biara biara) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PreparedStatement ps = connection.prepareStatement("delete from biara where id=?");
+            ps.setInt(1, biara.getID());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Biara berhasil dihapus");
+        } catch (SQLException ex) {
+            Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

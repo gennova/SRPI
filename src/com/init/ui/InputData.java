@@ -795,6 +795,7 @@ public class InputData extends javax.swing.JFrame {
             DaoFactory.getSusterDao().UpdateSuster(suster);
         }
         this.dispose();
+        InputUI.load_table();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

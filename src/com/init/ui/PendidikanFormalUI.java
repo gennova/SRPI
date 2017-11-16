@@ -45,7 +45,8 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             tbl_formal_suster.setModel(model);
             tbl_formal_suster.setRowSorter(sorter);
             tbl_formal_suster.getColumnModel().getColumn(0).setPreferredWidth(10);
-            tbl_formal_suster.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tbl_formal_suster.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbl_formal_suster.getColumnModel().getColumn(2).setPreferredWidth(200);
         }
     }
 
@@ -300,7 +301,7 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             formal.setIDPendidikan(ID);
             DaoFactory.getFormalDao().UpdateFormal(formal);
         }
-
+        loadtable();
         clearfield();
     }//GEN-LAST:event_jButton2ActionPerformed
 

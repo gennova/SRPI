@@ -41,6 +41,8 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
     private void loadtable() {
         RiwayatKerjaTabelModel rktm = new RiwayatKerjaTabelModel(DaoFactory.getKerjaDao().getAllRiwayatKerjaByIDSuster(Session.getSuster().getID()));
         tabelkerja.setModel(rktm);
+        tabelkerja.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tabelkerja.getColumnModel().getColumn(1).setPreferredWidth(100);
     }
 
     private void initApp() {

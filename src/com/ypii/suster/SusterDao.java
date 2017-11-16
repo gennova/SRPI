@@ -22,6 +22,10 @@ public interface SusterDao {
     public List<Suster> getAllSuster();
     
     public List<Suster> getAllSusterByMasaKarya(int lama);
+    
+    public List<Suster> getAllSusterAllMasaKarya();
+    
+    public List<Suster> getAllSusterKaryaByBiara(int id);
 
     public Suster getSusterByID(int ID);
 

@@ -27,7 +27,7 @@ public class RiwayatKerjaTabelModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class RiwayatKerjaTabelModel extends AbstractTableModel {
             case 0:
                 return "Kode";
             case 1:
-                return "Keterangan";
+                return "Bidang Kerja";
             case 2:
                 return "Cabang";
             case 3:
@@ -45,6 +45,8 @@ public class RiwayatKerjaTabelModel extends AbstractTableModel {
                 return "Tgl. Awal";
             case 5:
                 return "Tgl. Akhir";
+            case 6:
+                return "Keterangan";
             default:
                 return null;
         }
@@ -56,7 +58,7 @@ public class RiwayatKerjaTabelModel extends AbstractTableModel {
             case 0:
                 return lists.get(rowIndex).getID();
             case 1:
-                return lists.get(rowIndex).getKeterangan();
+                return lists.get(rowIndex).getBidangKerja().getNamabidangkerja();
             case 2:
                 return lists.get(rowIndex).getCabang().getNamacabang();
             case 3:
@@ -65,6 +67,8 @@ public class RiwayatKerjaTabelModel extends AbstractTableModel {
                 return lists.get(rowIndex).getTgl_awal();
             case 5:
                 return lists.get(rowIndex).getTgl_akhir();
+            case 6:
+                return lists.get(rowIndex).getKeterangan();
             default:
                 return null;
         }

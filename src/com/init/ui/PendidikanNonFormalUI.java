@@ -52,7 +52,8 @@ public class PendidikanNonFormalUI extends javax.swing.JFrame {
         PendidikanNonFormalTabelModel pnftm = new PendidikanNonFormalTabelModel(DaoFactory.getNonFormalDao().getAllPendidikanNonFormalByIDSuster(Session.getSuster().getID()));
         tabel_non_formal.setModel(pnftm);
         tabel_non_formal.getColumnModel().getColumn(0).setPreferredWidth(10);
-        tabel_non_formal.getColumnModel().getColumn(2).setPreferredWidth(200);
+        tabel_non_formal.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tabel_non_formal.getColumnModel().getColumn(2).setPreferredWidth(100);
     }
 
     /**

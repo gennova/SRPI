@@ -27,7 +27,7 @@ public class PendidikanNonFormalTabelModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -36,10 +36,12 @@ public class PendidikanNonFormalTabelModel extends AbstractTableModel {
             case 0:
                 return "ID";
             case 1:
-                return "Nama Lembaga";
+                return "Materi/Keahlian";
             case 2:
-                return "Tgl. Mulai";
+                return "Nama Lembaga";
             case 3:
+                return "Tgl. Mulai";
+            case 4:
                 return "Tgl. Selesai";
             default:
                 return null;
@@ -52,10 +54,12 @@ public class PendidikanNonFormalTabelModel extends AbstractTableModel {
             case 0:
                 return lists.get(rowIndex).getId();
             case 1:
-                return lists.get(rowIndex).getNamaLP();
+                return lists.get(rowIndex).getMateriLP();
             case 2:
-                return lists.get(rowIndex).getTglMulai();
+                return lists.get(rowIndex).getNamaLP();
             case 3:
+                return lists.get(rowIndex).getTglMulai();
+            case 4:
                 return lists.get(rowIndex).getTglSelesai();
             default:
                 return null;

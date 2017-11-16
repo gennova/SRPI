@@ -20,7 +20,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class InputUI extends javax.swing.JFrame {
 
-    private TableRowSorter sorter;
+    public static TableRowSorter sorter;
 
     /**
      * Creates new form InputUI
@@ -49,7 +49,7 @@ public class InputUI extends javax.swing.JFrame {
         txtLainnya.setText("");
     }
 
-    private void load_table() {
+    public static void load_table() {
         SusterTabelModel model = new SusterTabelModel(DaoFactory.getSusterDao().getAllSuster());
         sorter = new TableRowSorter(model);
         tabel_suster.setModel(model);
@@ -390,6 +390,9 @@ public class InputUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        load_table();
+        Session.setSuster(null);
+        cleartable();
         InputData data = new InputData();
         data.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -501,11 +504,11 @@ public class InputUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabel_suster;
+    public static javax.swing.JTable tabel_suster;
     private javax.swing.JLabel txtBiara;
     private javax.swing.JLabel txtDisplay;
     private javax.swing.JTextField txtIndukUtama;
-    private javax.swing.JLabel txtJumlahData;
+    public static javax.swing.JLabel txtJumlahData;
     private javax.swing.JLabel txtKekal;
     private javax.swing.JScrollPane txtLain;
     private javax.swing.JTextArea txtLainnya;
