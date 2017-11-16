@@ -6,6 +6,7 @@
 package com.init.ui;
 
 import com.init.tools.DaoFactory;
+import com.init.tools.PrintReport;
 import com.init.tools.Session;
 import com.ypii.suster.Suster;
 import com.ypii.suster.SusterTabelModel;
@@ -142,6 +143,11 @@ public class InputUI extends javax.swing.JFrame {
         txtLain.setViewportView(txtLainnya);
 
         jButton5.setText("Print Data");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -449,6 +455,14 @@ public class InputUI extends javax.swing.JFrame {
             txtLainnya.setText(suster.getLainLain());
         }
     }//GEN-LAST:event_tabel_susterMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String noinduk = txtNoInduk.getText();
+        Suster suster = DaoFactory.getSusterDao().getSusterByInduk("6270");
+        System.out.println(suster.getNamaSuster());
+        PrintReport printReport = new PrintReport("./report/datapribadi.jasper", "idsuster", String.valueOf(suster.getID()));
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
