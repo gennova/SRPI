@@ -4,6 +4,6 @@
 <comment>host settings</comment>
 <entry key="db">provinsialat</entry>
 <entry key="password">srpi</entry>
-<entry key="host">192.168.201.164</entry>
+<entry key="host">localhost</entry>
 <entry key="username">srpi</entry>
 </properties>

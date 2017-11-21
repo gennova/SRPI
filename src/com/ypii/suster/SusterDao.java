@@ -32,4 +32,6 @@ public interface SusterDao {
     public Suster getSusterByInduk(String noInduk);
 
     public List<Suster> getAllSusterByUsia(int usia);
+    
+    public List<Suster> getAllSusterAllUsia();
 }

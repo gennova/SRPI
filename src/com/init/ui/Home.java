@@ -51,8 +51,12 @@ public class Home extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistem Pendataan Suster PI Indonesia");
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 0));
 
@@ -104,7 +108,10 @@ public class Home extends javax.swing.JFrame {
                 .addGap(0, 533, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 51, 0)));
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        jMenu1.setText("File/Berkas");
 
         jMenuItem1.setText("Close");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -187,6 +194,11 @@ public class Home extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem9.setText("Daftar Suster berdasarkan usia");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem9);
 
         jMenuItem10.setText("Daftar Suster berdasarkan wilayah");
@@ -204,6 +216,21 @@ public class Home extends javax.swing.JFrame {
         jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Informasi Umum");
+
+        jMenuItem14.setText("Tentang Sistem");
+        jMenu4.add(jMenuItem14);
+
+        jMenuItem15.setText("Tentang Pembuat");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -282,6 +309,18 @@ public class Home extends javax.swing.JFrame {
         lsb.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        LaporanSusterUsiaUI lsuui = new LaporanSusterUsiaUI();
+        lsuui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        AboutMeUI amui = new AboutMeUI();
+        amui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,12 +363,15 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

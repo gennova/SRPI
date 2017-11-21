@@ -177,6 +177,11 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
         });
 
         jButton3.setText("Update");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Delete");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -355,6 +360,30 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
             loadtable();
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if (!txtID.getText().equalsIgnoreCase("")) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            BidangKerja bk = DaoFactory.getBidangKerjaDao().getBidangKerjaByNamaBidangKerja(comboKerja.getSelectedItem().toString());
+            Cabang cabang = DaoFactory.getCabangDao().getCabangByNamaCabang(comboWilayah.getSelectedItem().toString());
+            Unit unit = DaoFactory.getUnitDao().getUnitByNama(comboUnit.getSelectedItem().toString());
+            Suster suster = Session.getSuster();
+            String keterangan = txtKeterangan.getText();
+            String tglawal = sdf.format(tglAwal.getDate());
+            String tglAkhir = sdf.format(tglSampai.getDate());
+            RiwayatKerja riwayatKerja = DaoFactory.getKerjaDao().getRiwayatKerjaByID(Integer.parseInt(txtID.getText()));
+            riwayatKerja.setBidangKerja(bk);
+            riwayatKerja.setCabang(cabang);
+            riwayatKerja.setUnit(unit);
+            riwayatKerja.setKeterangan(keterangan);
+            riwayatKerja.setTgl_awal(tglawal);
+            riwayatKerja.setTgl_akhir(tglAkhir);
+            riwayatKerja.setSuster(suster);
+            DaoFactory.getKerjaDao().UpdateRiwayatKerja(riwayatKerja);
+            clearfield();            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

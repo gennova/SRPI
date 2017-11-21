@@ -66,6 +66,7 @@ public class InputData extends javax.swing.JFrame {
         } else {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Suster suster = Session.getSuster();
+            System.out.println(suster.getNamaSuster());
             txtInduk.setText(suster.getNoInduk());
             txtNamaSuster.setText(suster.getNamaSuster());
             txtNamaAsli.setText(suster.getNamaAsli());

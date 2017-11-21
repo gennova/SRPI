@@ -24,6 +24,7 @@ public class RiwayatKerjaDaoImplemen implements RiwayatKerjaDao {
 
     private final Connection connection;
     private final String sqlInsertRiwayatKerja = "insert into riwayatkerja(idbidangkerja,idcabang,idunit,keterangan,tglawal,tglakhir,idsuster) values(?,?,?,?,?,?,?)";
+    private final String sqlUpdateRiwayatKerja = "update riwayatkerja set idbidangkerja=?,idcabang=?,idunit=?,keterangan=?,tglawal=?,tglakhir=?,idsuster=? where id=?";
     private final String sqlGetAllRiwayatKerjaByIDSuster = "select * from riwayatkerja where idsuster=?";
     private final String sqlGetAllRiwayatKerjaByID = "select * from riwayatkerja where id=?";
 
@@ -54,7 +55,24 @@ public class RiwayatKerjaDaoImplemen implements RiwayatKerjaDao {
 
     @Override
     public void UpdateRiwayatKerja(RiwayatKerja kerja) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement;
+        try {
+            statement = connection.prepareStatement(sqlUpdateRiwayatKerja);
+            statement.setInt(1, kerja.getBidangKerja().getId());
+            statement.setInt(2, kerja.getCabang().getIdCabang());
+            statement.setInt(3, kerja.getUnit().getID());
+            statement.setString(4, kerja.getKeterangan());
+            statement.setString(5, kerja.getTgl_awal());
+            statement.setString(6, kerja.getTgl_akhir());
+            statement.setInt(7, kerja.getSuster().getID());
+            statement.setInt(8, kerja.getID());
+            int status = statement.executeUpdate();
+            if (status == 1) {
+                JOptionPane.showMessageDialog(null, "Data berhasil diperbaharui");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RiwayatKerjaDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -63,7 +81,7 @@ public class RiwayatKerjaDaoImplemen implements RiwayatKerjaDao {
             PreparedStatement ps = connection.prepareStatement("delete from riwayatkerja where id=?");
             ps.setInt(1, id);
             int status = ps.executeUpdate();
-            if (status==1) {
+            if (status == 1) {
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
             }
         } catch (SQLException ex) {

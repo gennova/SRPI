@@ -8,6 +8,7 @@ package com.init.ui;
 import com.init.tools.DaoFactory;
 import com.init.tools.PrintReport;
 import com.ypii.suster.SusterTabelModelKarya;
+import com.ypii.suster.SusterTabelModelUsia;
 
 /**
  *
@@ -21,11 +22,20 @@ public class LaporanSusterUsiaUI extends javax.swing.JFrame {
     public LaporanSusterUsiaUI() {
         initComponents();
         setLocationRelativeTo(null);
+        loadtable2();
     }
     
     private void loadtable(int kode){
-        SusterTabelModelKarya modelKarya = new SusterTabelModelKarya(DaoFactory.getSusterDao().getAllSusterByMasaKarya(kode));
-        tabelKarya.setModel(modelKarya);
+        SusterTabelModelUsia modelusia = new SusterTabelModelUsia(DaoFactory.getSusterDao().getAllSusterByUsia(kode));
+        tabelKarya.setModel(modelusia);
+        tabelKarya.getColumnModel().getColumn(0).setPreferredWidth(10);
+        tabelKarya.getColumnModel().getColumn(1).setPreferredWidth(30);
+        tabelKarya.getColumnModel().getColumn(2).setPreferredWidth(350);
+    }
+    
+    private void loadtable2(){
+        SusterTabelModelUsia modelusia = new SusterTabelModelUsia(DaoFactory.getSusterDao().getAllSusterAllUsia());
+        tabelKarya.setModel(modelusia);
         tabelKarya.getColumnModel().getColumn(0).setPreferredWidth(10);
         tabelKarya.getColumnModel().getColumn(1).setPreferredWidth(30);
         tabelKarya.getColumnModel().getColumn(2).setPreferredWidth(350);
@@ -54,12 +64,12 @@ public class LaporanSusterUsiaUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(204, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(51, 153, 0));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LAPORAN DATA BERDASAR MASA KARYA");
+        jLabel1.setText("LAPORAN DATA BERDASAR USIA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -75,7 +85,7 @@ public class LaporanSusterUsiaUI extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("MASA KARYA");
+        jLabel2.setText("FILTER USIA");
 
         jLabel3.setText("tahun");
 
