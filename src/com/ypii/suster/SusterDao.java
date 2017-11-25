@@ -34,4 +34,6 @@ public interface SusterDao {
     public List<Suster> getAllSusterByUsia(int usia);
     
     public List<Suster> getAllSusterAllUsia();
+    
+    public List<Suster> getSusterUltahToday();
 }

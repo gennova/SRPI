@@ -8,12 +8,15 @@ package com.init.ui;
 import com.init.tools.DaoFactory;
 import com.init.tools.PrintReport;
 import com.ypii.suster.SusterTabelModelKarya;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author laravel
  */
 public class LaporanSusterAllUI extends javax.swing.JFrame {
+    private static TableRowSorter sorter1;
 
     /**
      * Creates new form LaporanSusterUI
@@ -30,6 +33,8 @@ public class LaporanSusterAllUI extends javax.swing.JFrame {
         tabelKarya.getColumnModel().getColumn(0).setPreferredWidth(10);
         tabelKarya.getColumnModel().getColumn(1).setPreferredWidth(30);
         tabelKarya.getColumnModel().getColumn(2).setPreferredWidth(350);
+        sorter1 = new TableRowSorter(modelKarya);
+        tabelKarya.setRowSorter(sorter1);
     }
 
     /**
@@ -75,6 +80,15 @@ public class LaporanSusterAllUI extends javax.swing.JFrame {
         );
 
         jLabel2.setText("FILTER/CARI");
+
+        txtLama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLamaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLamaKeyReleased(evt);
+            }
+        });
 
         tabelKarya.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +179,21 @@ public class LaporanSusterAllUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtLamaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLamaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLamaKeyPressed
+
+    private void txtLamaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLamaKeyReleased
+        // TODO add your handling code here:
+        String text = txtLama.getText();
+        if (text.length() == 0) {
+            sorter1.setRowFilter(null);
+        } else {
+            System.out.println("y");
+            sorter1.setRowFilter(RowFilter.regexFilter(text));
+        }
+    }//GEN-LAST:event_txtLamaKeyReleased
 
     /**
      * @param args the command line arguments

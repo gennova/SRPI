@@ -8,6 +8,7 @@ package com.init.ui;
 import com.init.tools.DaoFactory;
 import com.init.tools.PrintReport;
 import com.ypii.suster.SusterTabelModelKarya;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,6 +22,15 @@ public class LaporanSusterUI extends javax.swing.JFrame {
     public LaporanSusterUI() {
         initComponents();
         setLocationRelativeTo(null);
+        loadtable_empty();
+    }
+    
+    private void loadtable_empty(){
+        SusterTabelModelKarya modelKarya = new SusterTabelModelKarya(DaoFactory.getSusterDao().getAllSusterAllMasaKarya());
+        tabelKarya.setModel(modelKarya);
+        tabelKarya.getColumnModel().getColumn(0).setPreferredWidth(10);
+        tabelKarya.getColumnModel().getColumn(1).setPreferredWidth(30);
+        tabelKarya.getColumnModel().getColumn(2).setPreferredWidth(350);
     }
     
     private void loadtable(int kode){
@@ -51,6 +61,7 @@ public class LaporanSusterUI extends javax.swing.JFrame {
         tabelKarya = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -108,6 +119,13 @@ public class LaporanSusterUI extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,6 +135,8 @@ public class LaporanSusterUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -150,7 +170,8 @@ public class LaporanSusterUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
@@ -178,6 +199,12 @@ public class LaporanSusterUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         PrintReport printReport = new PrintReport("./report/daftarsusterbykarya.jasper", "karya", txtLama.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        txtLama.setText("");
+        loadtable_empty();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +245,7 @@ public class LaporanSusterUI extends javax.swing.JFrame {
     private Code.Name.Flamboyan.SwingMakeOver.ButtonRoundRect buttonRoundRect1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
