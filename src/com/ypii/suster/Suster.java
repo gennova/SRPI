@@ -50,6 +50,7 @@ public class Suster {
 
     private int tahunlamakarya;
     private int bulanlamakarya;
+    private String status_keaktivan;
 
     public int getID() {
         return ID;
@@ -337,6 +338,14 @@ public class Suster {
 
     public void setKotakaulkekal(String kotakaulkekal) {
         this.kotakaulkekal = kotakaulkekal;
+    }
+
+    public void setStatus_keaktivan(String status_keaktivan) {
+        this.status_keaktivan = status_keaktivan;
+    }
+
+    public String getStatus_keaktivan() {
+        return status_keaktivan;
     }
 
 }

@@ -20,7 +20,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.util.calendar.Gregorian;
 
 /**
  *
@@ -47,8 +46,6 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
 
     private void initApp() {
         Date now = GregorianCalendar.getInstance().getTime();
-        tglAwal.setDate(now);
-        tglSampai.setDate(now);
         comboKerja.removeAllItems();
         comboWilayah.removeAllItems();
         comboUnit.removeAllItems();
@@ -72,6 +69,8 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
         comboKerja.setSelectedIndex(0);
         comboUnit.setSelectedIndex(0);
         comboWilayah.setSelectedIndex(0);
+        tglAwal.setText("");
+        tglAkhir.setText("");
         loadtable();
     }
 
@@ -92,9 +91,7 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         comboKerja = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        tglAwal = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        tglSampai = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         txtKeterangan = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -107,6 +104,8 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
         comboUnit = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         comboWilayah = new javax.swing.JComboBox<>();
+        tglAwal = new javax.swing.JTextField();
+        tglAkhir = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -206,7 +205,7 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -220,7 +219,7 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
                             .addComponent(comboKerja, 0, 238, Short.MAX_VALUE)
                             .addComponent(txtKeterangan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,16 +227,15 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tglAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(tglAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tglSampai, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(comboWilayah, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(comboWilayah, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tglAkhir)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,20 +257,20 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(tglSampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(tglAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(comboKerja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(tglAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tglAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(comboUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(comboWilayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboWilayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -284,7 +282,7 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboKerja, jLabel3, jLabel4, jLabel5, tglAwal, tglSampai});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboKerja, jLabel3, jLabel4, jLabel5});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,15 +312,15 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
             Unit unit = DaoFactory.getUnitDao().getUnitByNama(comboUnit.getSelectedItem().toString());
             Suster suster = Session.getSuster();
             String keterangan = txtKeterangan.getText();
-            String tglawal = sdf.format(tglAwal.getDate());
-            String tglAkhir = sdf.format(tglSampai.getDate());
+            String tglawal = tglAwal.getText();
+            String tglAkhirnya = tglAkhir.getText();
             RiwayatKerja riwayatKerja = new RiwayatKerja();
             riwayatKerja.setBidangKerja(bk);
             riwayatKerja.setCabang(cabang);
             riwayatKerja.setUnit(unit);
             riwayatKerja.setKeterangan(keterangan);
             riwayatKerja.setTgl_awal(tglawal);
-            riwayatKerja.setTgl_akhir(tglAkhir);
+            riwayatKerja.setTgl_akhir(tglAkhirnya);
             riwayatKerja.setSuster(suster);
             DaoFactory.getKerjaDao().InsertRiwayatKerja(riwayatKerja);
             clearfield();            
@@ -342,9 +340,9 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
             comboWilayah.setSelectedItem(kerja.getCabang().getNamacabang());
             txtKeterangan.setText(kerja.getKeterangan());
             try {
-                tglAwal.setDate(sdf.parse(kerja.getTgl_awal()));
-                tglSampai.setDate(sdf.parse(kerja.getTgl_akhir()));
-            } catch (ParseException ex) {
+                tglAwal.setText(kerja.getTgl_awal());
+                tglAkhir.setText(kerja.getTgl_akhir());
+            } catch (Exception ex) {
                 Logger.getLogger(RiwayatKerjaUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -370,15 +368,15 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
             Unit unit = DaoFactory.getUnitDao().getUnitByNama(comboUnit.getSelectedItem().toString());
             Suster suster = Session.getSuster();
             String keterangan = txtKeterangan.getText();
-            String tglawal = sdf.format(tglAwal.getDate());
-            String tglAkhir = sdf.format(tglSampai.getDate());
+            String tglawal = tglAwal.getText();
+            String tglAkhirnya = tglAkhir.getText();
             RiwayatKerja riwayatKerja = DaoFactory.getKerjaDao().getRiwayatKerjaByID(Integer.parseInt(txtID.getText()));
             riwayatKerja.setBidangKerja(bk);
             riwayatKerja.setCabang(cabang);
             riwayatKerja.setUnit(unit);
             riwayatKerja.setKeterangan(keterangan);
             riwayatKerja.setTgl_awal(tglawal);
-            riwayatKerja.setTgl_akhir(tglAkhir);
+            riwayatKerja.setTgl_akhir(tglAkhirnya);
             riwayatKerja.setSuster(suster);
             DaoFactory.getKerjaDao().UpdateRiwayatKerja(riwayatKerja);
             clearfield();            
@@ -440,8 +438,8 @@ public class RiwayatKerjaUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelkerja;
-    private com.toedter.calendar.JDateChooser tglAwal;
-    private com.toedter.calendar.JDateChooser tglSampai;
+    private javax.swing.JTextField tglAkhir;
+    private javax.swing.JTextField tglAwal;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtKeterangan;
     // End of variables declaration//GEN-END:variables

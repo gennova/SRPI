@@ -7,8 +7,6 @@ package com.init.ui;
 
 import com.init.biara.Biara;
 import com.init.biara.BiaraTabelModel;
-import com.init.cabang.Cabang;
-import com.init.cabang.CabangTabelModel;
 import com.init.tools.DaoFactory;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -113,7 +111,6 @@ public class BiaraUI extends javax.swing.JFrame {
         });
 
         jButton3.setText("Update");
-        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -251,17 +248,19 @@ public class BiaraUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String kodecabang = txtNo.getText();
-        String namacabang = txtNama.getText();
-        if (!"".equals(kodecabang)) {
-            Cabang cabang = DaoFactory.getCabangDao().getCabangByKode(kodecabang);
-            if (cabang!=null) {
-                int id = cabang.getIdCabang();
-                cabang = new Cabang();
-                cabang.setIdCabang(id);
-                cabang.setNamacabang(namacabang);
-                cabang.setKode(kodecabang);
-                DaoFactory.getCabangDao().updateCabang(cabang);
+        String kodebiara = txtNo.getText();
+        String namabiara = txtNama.getText();
+        if (!"".equals(kodebiara)) {
+            Biara biara = DaoFactory.getBiaraDao().getBiaraByID(Integer.parseInt(kodebiara));
+            if (biara!=null) {
+                int id = biara.getID();
+                Biara b = new Biara();
+                b.setID(id);
+                b.setKodeBiara(kodebiara);
+                b.setNamaBiara(namabiara);
+                b.setKotacabang(namabiara);
+                b.setAlamatbiara(txtAlamat.getText());
+                DaoFactory.getBiaraDao().UpdateBiaraByID(b);
                 showCabang();
                 clearField();
             }

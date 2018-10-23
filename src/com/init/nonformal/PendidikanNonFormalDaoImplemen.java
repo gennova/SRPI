@@ -140,4 +140,17 @@ public class PendidikanNonFormalDaoImplemen implements PendidikanNonFormalDao {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void DeleteNonFormalByID(String id) {
+        try {
+            PreparedStatement ps = connection.prepareStatement("delete from pendidikannonformal where id=?");
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PendidikanNonFormalDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+
 }

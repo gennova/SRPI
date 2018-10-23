@@ -18,6 +18,8 @@ public interface PendidikanNonFormalDao {
     public void UpdateNonFormal(PendidikanNonFormal nonFormal);
 
     public void DeleteNonFormal(PendidikanNonFormal nonFormal);
+    
+    public void DeleteNonFormalByID(String id);
 
     public List<PendidikanNonFormal> getAllPendidikanNonFormal();
 

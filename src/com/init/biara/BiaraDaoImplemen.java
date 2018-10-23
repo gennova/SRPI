@@ -26,6 +26,7 @@ public class BiaraDaoImplemen implements BiaraDao {
     private final String sqlGetBiaraByID = "select * from biara where id=?";
     private final String sqlGetBiaraByNama = "select * from biara where namabiara=?";
     private final String sqlInsertBiara = "insert into biara(namabiara,alamatbiara,kotacabang) values (?,?,?)";
+    private final String sqlUpdateBiara = "update biara set namabiara=?,alamatbiara=?,kotacabang=? where id=?";
 
     public BiaraDaoImplemen(Connection connection) {
         this.connection = connection;
@@ -67,7 +68,7 @@ public class BiaraDaoImplemen implements BiaraDao {
                 biara = new Biara();
                 biara.setID(rs.getInt("id"));
                 biara.setNamaBiara(rs.getString("namabiara"));
-                biara.setAlamatbiara(rs.getString("namabiara"));
+                biara.setAlamatbiara(rs.getString("alamatbiara"));
                 biara.setKotacabang(rs.getString("kotacabang"));
             }
         } catch (SQLException ex) {
@@ -94,7 +95,7 @@ public class BiaraDaoImplemen implements BiaraDao {
                 biara = new Biara();
                 biara.setID(rs.getInt("id"));
                 biara.setNamaBiara(rs.getString("namabiara"));
-                biara.setAlamatbiara(rs.getString("namabiara"));
+                biara.setAlamatbiara(rs.getString("alamatbiara"));
                 biara.setKotacabang(rs.getString("kotacabang"));
             }
         } catch (SQLException ex) {
@@ -122,7 +123,18 @@ public class BiaraDaoImplemen implements BiaraDao {
 
     @Override
     public void UpdateBiaraByID(Biara biara) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(sqlUpdateBiara);
+            ps.setString(1, biara.getNamaBiara());
+            ps.setString(2, biara.getAlamatbiara());
+            ps.setString(3, biara.getKotacabang());
+            ps.setInt(4, biara.getID());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data biara berhasil diupdate");
+        } catch (SQLException ex) {
+            Logger.getLogger(BiaraDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

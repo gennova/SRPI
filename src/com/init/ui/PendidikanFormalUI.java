@@ -52,8 +52,6 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
 
     private void initApp() {
         Date now = GregorianCalendar.getInstance().getTime();
-        TglMasuk.setDate(now);
-        TglLulus.setDate(now);
         ComboPendidikan.removeAllItems();
         List<PendidikanTerakhir> list = DaoFactory.getPendidikanTerakhirDao().getAllPendidikan();
         list.forEach((pendidikanTerakhir) -> {
@@ -65,6 +63,8 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
         NamaSP.setText("");
         AlamatSP.setText("");
         txtID.setText("");
+        TglMasuk.setText("");
+        TglLulus.setText("");
         initApp();
     }
 
@@ -85,9 +85,7 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         NamaSP = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        TglMasuk = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        TglLulus = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         AlamatSP = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -97,6 +95,8 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        TglMasuk = new javax.swing.JTextField();
+        TglLulus = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -181,7 +181,7 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -194,13 +194,13 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
                             .addComponent(AlamatSP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TglMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                            .addComponent(TglLulus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 95, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TglLulus)
+                            .addComponent(TglMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -213,26 +213,25 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {TglLulus, TglMasuk});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(ComboPendidikan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(NamaSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TglMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TglLulus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(ComboPendidikan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(TglMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(NamaSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(TglLulus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -249,7 +248,7 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
                 .addGap(0, 14, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AlamatSP, ComboPendidikan, NamaSP, TglLulus, TglMasuk, jLabel3, jLabel4, jLabel5, jLabel6});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AlamatSP, ComboPendidikan, NamaSP, jLabel3, jLabel4, jLabel5, jLabel6});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,14 +273,14 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             PendidikanTerakhir pt = DaoFactory.getPendidikanTerakhirDao().getPendidikanByNama(ComboPendidikan.getSelectedItem().toString());
             String namaSP = NamaSP.getText();
             String alamatSP = AlamatSP.getText();
-            String tglMasuk = sdf.format(TglMasuk.getDate());
-            String tglLulus = sdf.format(TglLulus.getDate());
+            String tglMasuknya = TglMasuk.getText();
+            String tglLulusnya = TglLulus.getText();
             PendidikanFormal formal = new PendidikanFormal();
             formal.setPendidikanTerakhir(pt);
             formal.setNamaSP(namaSP);
             formal.setAlamatSP(alamatSP);
-            formal.setTglMasuk(tglMasuk);
-            formal.setTglLulus(tglLulus);
+            formal.setTglMasuk(tglMasuknya);
+            formal.setTglLulus(tglLulusnya);
             formal.setSuster(Session.getSuster());
             DaoFactory.getFormalDao().InsertFormal(formal);
         } else {
@@ -289,14 +288,14 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             PendidikanTerakhir pt = DaoFactory.getPendidikanTerakhirDao().getPendidikanByNama(ComboPendidikan.getSelectedItem().toString());
             String namaSP = NamaSP.getText();
             String alamatSP = AlamatSP.getText();
-            String tglMasuk = sdf.format(TglMasuk.getDate());
-            String tglLulus = sdf.format(TglLulus.getDate());
+            String tglMasuknya = TglMasuk.getText();
+            String tglLulusnya = TglLulus.getText();
             PendidikanFormal formal = new PendidikanFormal();
             formal.setPendidikanTerakhir(pt);
             formal.setNamaSP(namaSP);
             formal.setAlamatSP(alamatSP);
-            formal.setTglMasuk(tglMasuk);
-            formal.setTglLulus(tglLulus);
+            formal.setTglMasuk(tglMasuknya);
+            formal.setTglLulus(tglLulusnya);
             formal.setSuster(Session.getSuster());
             formal.setIDPendidikan(ID);
             DaoFactory.getFormalDao().UpdateFormal(formal);
@@ -321,12 +320,8 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
             NamaSP.setText(formal.getNamaSP());
             ComboPendidikan.setSelectedItem(formal.getPendidikanTerakhir().getNamapendidikanterakhir());
             AlamatSP.setText(formal.getAlamatSP());
-            try {
-                TglMasuk.setDate(sdf.parse(formal.getTglMasuk()));
-                TglLulus.setDate(sdf.parse(formal.getTglLulus()));
-            } catch (ParseException ex) {
-                Logger.getLogger(PendidikanFormalUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            TglMasuk.setText(formal.getTglMasuk());
+            TglLulus.setText(formal.getTglLulus());
         }
     }//GEN-LAST:event_tbl_formal_susterMouseClicked
 
@@ -385,8 +380,8 @@ public class PendidikanFormalUI extends javax.swing.JFrame {
     private javax.swing.JTextField AlamatSP;
     private javax.swing.JComboBox<String> ComboPendidikan;
     private javax.swing.JTextField NamaSP;
-    private com.toedter.calendar.JDateChooser TglLulus;
-    private com.toedter.calendar.JDateChooser TglMasuk;
+    private javax.swing.JTextField TglLulus;
+    private javax.swing.JTextField TglMasuk;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
